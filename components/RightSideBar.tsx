@@ -10,22 +10,22 @@ const RightSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
                 <div className="profile-banner" />
                 <div className="profile">
                     <div className="profile-img">
-                        <span className="text-5xl font-bold text-blue-500">{user.firstName[0]}</span>
+                        <span className="text-5xl font-bold text-blue-500">{user?.name[0]}</span>
                     </div>
 
                     <div className="profile-details">
                         <h1 className="profile-name">
-                            {user.firstName} {user.lastName}
+                            {user?.name}
                         </h1>
                         <p className="profile-email">
-                            {user.email}
+                            {user?.email}
                         </p>
                     </div>
                 </div>
             </section>
 
             <section>
-                <div className="flex w-full justify-between">
+                <div className="flex w-full justify-between px-3">
                     <h2 className="header-2">My Banks</h2>
                     <Link href="/" className="flex gap-2">
                         <Image
@@ -47,7 +47,7 @@ const RightSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
                             <BankCard 
                                 key={banks[0].$id}
                                 account={banks[0]}
-                                userName={`${user.firstName} ${user.lastName}`}
+                                userName={user?.name}
                                 showBalance={false}
                             />
                         </div>
@@ -57,7 +57,7 @@ const RightSideBar = ({ user, transactions, banks }: RightSidebarProps) => {
                                 <BankCard 
                                     key={banks[1].$id}
                                     account={banks[1]}
-                                    userName={`${user.firstName} ${user.lastName}`}
+                                    userName={user?.name}
                                     showBalance={false}
                             />
                              </div>
